@@ -7,8 +7,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "codegen": "playwright codegen",
     "test": "jest",
-    "sitmap":"next-sitemap"
+    "test:ui":"playwright test",
+    "sitemap": "next-sitemap",
+    "prettier": "prettier --write .",
+    "changelog": "standard-version"
   },
   "dependencies": {
     "next": "15.5.2",
@@ -31,6 +35,7 @@
     "next-seo": "^6.8.0",
     "next-sitemap": "^4.2.3",
     "playwright": "^1.55.0",
+    "standard-version": "^9.5.0",
     "tailwindcss": "^4",
     "ts-jest": "^29.4.1",
     "typescript": "^5"

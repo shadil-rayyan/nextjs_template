@@ -1,0 +1,85 @@
+# Universal CODEOWNERS file
+
+# 1. Global ownership (covers the entire repository)
+* @global-dev-team
+
+# 2. Documentation-related files
+# Assign @docs-team to all files in the docs folder
+/docs/* @docs-team
+
+# Assign @tech-writers to markdown files in the root and any subdirectories (like /docs/)
+*.md @tech-writers
+
+# 3. Code-related files
+# Assign @frontend-team to all frontend source code files (JS, JSX, TS, etc.)
+/src/frontend/* @frontend-team
+/src/frontend/**/*.js @frontend-team
+/src/frontend/**/*.ts @frontend-team
+/src/frontend/**/*.jsx @frontend-team
+/src/frontend/**/*.tsx @frontend-team
+
+# Assign @backend-team to all backend-related files
+/src/backend/* @backend-team
+/src/backend/**/*.js @backend-team
+/src/backend/**/*.ts @backend-team
+
+# 4. Test-related files
+# Assign @test-team to all test files
+/tests/* @test-team
+/tests/**/*.js @test-team
+/tests/**/*.ts @test-team
+/tests/**/*.spec.js @test-team
+/tests/**/*.spec.ts @test-team
+
+# 5. Configuration ficies)
+# Assign @security-team to security-related files
+/.github/security/* @security-team
+/.github/security.md @security-team
+
+# 9. Images and assets
+# Assignfor files in multiple directories
+# Assign @api-team to API-related files (e.g., in src/api or a dedicated /api directory)
+/src/api/* @api-team
+/api/* @api-team
+
+# 12. Special ownership for specific file types
+# Assign @qa-team to all configuration files (e.g., *.json, *.yml)
+*.json @qa-team
+*.yml @qa-team
+
+# 13. Assiges in the /src/frontend/ directory
+/src/frontend/* @frontend-team @design-team
+
+# 14. Automatic review by the global-dev-team for everything
+# If no other owners are found, fall back to global-dev-team as the reviewer
+* @global-dev-team
+
+ning multiple teams to specific directories
+# Assign both @frontend-team and @design-team to fil @design-team to all image files (e.g., PNG, JPG, SVG) and design assets
+/assets/* @design-team
+/assets/**/*.png @design-team
+/assets/**/*.jpg @design-team
+/assets/**/*.svg @design-team
+
+# 10. Exclusion for specific files or directories
+# Do not assign any reviewers to files in the temp/ directory
+/temp/* @no-reviewer
+
+# 11. Specific ownership rules e files
+# Assign @legal-team to all license-related files
+/LICENSE @legal-team
+/LICENSE.txt @legal-team
+/LICENSE.md @legal-team
+
+# 8. Security-related files (e.g., security pol6. CI/CD files (e.g., GitHub Actions workflows)
+# Assign @devops-team to all CI/CD workflow files
+/.github/workflows/* @devops-team
+
+# 7. Licensam
+*.yml @config-team
+*.yaml @config-team
+*.env @config-team
+
+# iles
+# Assign @config-team to all config-related files (e.g., JSON, YAML, ENV)
+*.json @config-te
