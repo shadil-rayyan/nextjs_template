@@ -1,17 +1,18 @@
 import type { NextConfig } from "next";
+import withPWA from "next-pwa";
 
 const nextConfig: NextConfig = {
-async headers() {
+  async headers() {
     return [
       {
-        source: "/(.*)", // applies to all routes
+        source: "/(.*)",
         headers: [
           { key: "X-Frame-Options", value: "DENY" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
         ],
       },
       {
-        source: "/api/:path*", // applies only to API routes
+        source: "/api/:path*",
         headers: [
           { key: "Cache-Control", value: "no-store" },
         ],
@@ -20,4 +21,7 @@ async headers() {
   },
 };
 
-export default nextConfig;
+export default withPWA({
+  dest: "public",
+  register: true,
+})(nextConfig);
