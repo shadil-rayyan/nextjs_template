@@ -1,0 +1,1 @@
+how doe sigthub action hwo to wturn it on and alltht  stuff 

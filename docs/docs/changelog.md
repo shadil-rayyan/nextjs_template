@@ -1,0 +1,1 @@
+how to use standard verison to add autromacaliy cahngelog

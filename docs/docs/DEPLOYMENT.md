@@ -18,3 +18,6 @@
 Notes:
 - Ensure serverless/edge-compatible code paths where required.
 - Static assets are handled by OpenNext asset pipeline.
+netlify 
+render 
+all that stuff
