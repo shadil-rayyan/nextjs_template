@@ -2,7 +2,7 @@
 #
 # To get started with Next.js see: https://nextjs.org/docs/getting-started
 #
-name: (Disabled) Deploy Next.js site to Pages
+name:  Deploy Next.js site to Pages
 
 on:
   # Disabled automatic triggers to avoid conflicts with primary CI
