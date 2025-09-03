@@ -14,7 +14,7 @@ const httpDuration = new client.Histogram({
 });
 client.register.registerMetric(httpDuration);
 
-export async function GET(request: string) {
+export async function GET() {
   return new NextResponse(await client.register.metrics(), {
     headers: { "Content-Type": client.register.contentType },
   });
