@@ -1,6 +1,8 @@
 // app/api/metrics/route.ts
 import { NextResponse } from "next/server";
 import client from "prom-client";
+export const dynamic = "force-static";
+export const revalidate = false;
 
 // Collect default metrics (CPU, memory, etc.)
 client.collectDefaultMetrics();
