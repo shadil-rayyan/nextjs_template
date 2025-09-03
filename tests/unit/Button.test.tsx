@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import Button from '../../components/Button';
+import Button from "@/components/Button";
 
 describe('Button Component', () => {
   it('renders with correct label', () => {
