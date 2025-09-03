@@ -30,4 +30,4 @@ To maintain security when using this project, follow these recommendations:
 
 ## Responsible Disclosure Policy
 
-We appreciate the responsible disclosure of vulnerabilities and will work with researchers and the community to address security issues promptly. If you need clarification, please contact us at [codecompass2024@gmail.com].
+We appreciate the responsible disclosure of vulnerabilities and will work with researchers and the community to address security issues promptly. If you need clarification, please contact us at [shadilrayyan2@gmail.com].

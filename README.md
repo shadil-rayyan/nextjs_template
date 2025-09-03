@@ -1,36 +1,129 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# 🚀 Next.js Template
 
-First, run the development server:
+A modern **Next.js 15 + React 19** starter template with batteries included.  
+Designed for scalability, testing, performance, and developer experience.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## ✨ Features
+
+- ⚡ **Next.js 15** (App Router, React 19, Server Components ready)
+- 🎨 **Tailwind CSS 4** for styling
+- 🧹 **ESLint + Prettier** for code quality
+- 🔍 **SEO-ready** with `next-seo` and `next-sitemap`
+- 📦 **PWA support** with `next-pwa`
+- 📊 **Monitoring & Metrics** with Prometheus (`/api/metrics`)
+- 📝 **Changelog automation** with `standard-version`
+- 🧪 **Testing** stack:
+  - **Jest + RTL** for unit tests
+  - **Playwright** for end-to-end & UI testing
+- 📚 **Docs-as-code** inside `/docs` (separate project)
+- 🐳 **Docker-ready** for production deployments
+
+---
+
+## 📂 Project Structure
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+nextjs\_template/
+│── app/               # Next.js app router
+│── lib/               # Shared libraries (logger, metrics, etc.)
+│── public/            # Static assets
+│── docs/              # Documentation project (MkDocs / Docusaurus)
+│── tests/             # Unit & E2E tests
+│── .eslintrc.json     # Linting rules
+│── tailwind.config.js # Tailwind setup
+│── package.json
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+````
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🛠️ Scripts
 
-To learn more about Next.js, take a look at the following resources:
+| Script             | Description                            |
+|--------------------|----------------------------------------|
+| `npm run dev`      | Start dev server (Next.js)             |
+| `npm run build`    | Build production app                   |
+| `npm run start`    | Run production build                   |
+| `npm run lint`     | Run ESLint                             |
+| `npm run prettier` | Format code with Prettier              |
+| `npm run test`     | Run Jest tests                        |
+| `npm run test:ui`  | Run Playwright tests                   |
+| `npm run sitemap`  | Generate sitemap                       |
+| `npm run release`  | Create a new release + changelog       |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📊 Observability
 
-## Deploy on Vercel
+- **Prometheus metrics**: exposed at [`/api/metrics`](./app/api/metrics/route.ts)  
+- **Grafana**: use Prometheus as a data source for dashboards  
+- **Logging**: `pino` for structured logs (pretty logs in dev)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🧪 Testing
+
+- **Jest**: for unit & integration tests  
+- **React Testing Library**: for component testing  
+- **Playwright**: for UI and end-to-end workflows
+
+```bash
+npm run test       # Run Jest tests
+npm run test:ui    # Run Playwright tests
+````
+
+---
+
+## 📦 Releasing
+
+This template uses **[standard-version](https://github.com/conventional-changelog/standard-version)**:
+
+```bash
+npm run release           # Patch release
+npm run release:minor     # Minor release
+npm run release:major     # Major release
+```
+
+It auto-generates a `CHANGELOG.md`.
+
+---
+
+## 🐳 Docker
+
+```bash
+docker build -t nextjs-template .
+docker run -p 3000:3000 nextjs-template
+```
+
+Optimized multi-stage build with `node:20-slim`.
+
+---
+
+## 📚 Documentation
+
+Docs are managed as a **separate project** inside `/docs`.
+Run it independently for architecture, API references, and developer guides.
+
+---
+
+## 🚀 Getting Started
+
+```bash
+git clone https://github.com/your-username/nextjs-template.git
+cd nextjs-template
+npm install
+npm run dev
+```
+
+Visit 👉 [http://localhost:3000](http://localhost:3000)
+
+---
+
+## 📜 License
+
+MIT
+

@@ -9,13 +9,18 @@
     "lint": "eslint",
     "codegen": "playwright codegen",
     "test": "jest",
-    "test:ui":"playwright test",
+    "test:ui": "playwright test",
     "sitemap": "next-sitemap",
     "prettier": "prettier --write .",
-    "changelog": "standard-version"
+    "release": "standard-version",
+  "release:minor": "standard-version --release-as minor",
+  "release:major": "standard-version --release-as major",
+  "Docker-build": "docker build -t nextjs_tempalate .",
+  "Docker-run": "docker run -p 3000:3000 nextjs_tempalate"
   },
   "dependencies": {
     "next": "15.5.2",
+    "prom-client": "^15.1.3",
     "react": "19.1.0",
     "react-dom": "19.1.0"
   },
