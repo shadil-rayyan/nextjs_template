@@ -2,15 +2,15 @@
 #
 # To get started with Next.js see: https://nextjs.org/docs/getting-started
 #
-name:  Deploy Next.js site to Pages
+name: Deploy Next.js site to Pages
 
 on:
-  # Disabled automatic triggers to avoid conflicts with primary CI
-  workflow_dispatch:
+  # Runs on pushes targeting the default branch
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches: ["main"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -27,7 +27,6 @@ concurrency:
 jobs:
   # Build job
   build:
-    if: ${{ false }} # disabled
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -83,7 +82,6 @@ jobs:
 
   # Deployment job
   deploy:
-    if: ${{ false }} # disabled
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
