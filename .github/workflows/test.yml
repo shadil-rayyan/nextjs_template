@@ -23,59 +23,26 @@ jobs:
           node-version: '20'
           cache: 'npm'
 
-      - name: Cache Jest cache
-        id: cache-jest
-        uses: actions/cache@v4
-        with:
-          path: node_modules/.cache/jest
-          key: jest-cache-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
-
-      - name: Cache Playwright browsers
-        id: cache-playwright
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/ms-playwright
-          key: playwright-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
-
       - name: Install dependencies
         run: npm ci
-
-      - name: Install Playwright browsers
-        if: steps.cache-playwright.outputs.cache-hit != 'true'
-        run: npx playwright install --with-deps
-
-
 
       - name: Unit tests with coverage
         run: npm run test:unit -- --runInBand
 
-      - name: Upload coverage artifact
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: coverage-lcov
-          path: |
-            coverage/lcov.info
-            coverage/coverage-final.json
-          if-no-files-found: warn
-
       - name: Build
         run: npm run build
 
-      - name: E2E tests (Playwright)
+      - name: Start Next.js
+        run: npm run start &
         env:
-          NEXT_PUBLIC_SITE_URL: http://localhost:3000
           PORT: 3000
-          CI: 'true'
-        run: npm run test:e2e
+          NEXT_PUBLIC_SITE_URL: http://localhost:3000
 
-      - name: Upload Playwright report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: playwright-report
-          path: playwright-report
-          if-no-files-found: warn
+      - name: Wait for Next.js
+        run: npx wait-on http://localhost:3000
+
+      - name: E2E tests (Playwright)
+        run: npm run test:e2e
 
       - name: Run Lighthouse Audit
         uses: treosh/lighthouse-ci-action@v12
@@ -86,3 +53,4 @@ jobs:
 
       - name: Run bundle size check
         run: npm run bundlesize
+
